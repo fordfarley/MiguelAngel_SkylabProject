@@ -1,3 +1,4 @@
+
 .App {
   text-align: center;
 }
@@ -30,4 +31,13 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.separador{
+  height:1px;
+  width:90%;
+  border-bottom-style: solid;
+  border-width: 0.5px;
+  margin: 10px 0;
+  border-bottom-color: #71828c;
 }

@@ -7,13 +7,18 @@ import React from 'react'
 import {Route, Switch} from 'react-router-dom';
 
 // Importamos todas aquellas páginas a las que queremos acceder
+import Talent from './pages/Talent';
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
 
 
-export default function routes(props) {
+export default function Routes(props) {
   return (
     <Switch>
-
+        <Route path="/profile/:id" component={Profile} />
+        <Route path="/talent/:id" component={Talent} />
+        <Route path="/" component={Home} />
     </Switch>
   )
 }

@@ -4,7 +4,31 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// import { createStore } from 'redux';
+// import { Provider } from 'react-redux';
+// import reducers from './redux/reducers';
+
+// const store = createStore(reducers);
+
+
+
+const firebase = require('firebase/app');
+
+var firebaseConfig = {
+    apiKey: "AIzaSyDDKAuYQ4rNp8JzzOEZW3Jgk4BSZyUkWIE",
+    authDomain: "web-hour-teachers.firebaseapp.com",
+    databaseURL: "https://web-hour-teachers.firebaseio.com",
+    projectId: "web-hour-teachers",
+    storageBucket: "web-hour-teachers.appspot.com",
+    messagingSenderId: "521694429836"
+  };
+  firebase.initializeApp(firebaseConfig);
+
+ReactDOM.render(
+    // <Provider store={store}>
+      <App />
+    // </Provider>  
+    , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

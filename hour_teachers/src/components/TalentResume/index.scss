@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat:600');
+$title-font: 'Montserrat', sans-serif;
+$text-font: 'Lato', sans-serif;
+
+
+$color-light: #f5f5f5;
+$color-dark: #202d3f;
+$color-middle-dark: #71828C;
+$color-yellow:#ffbd44;
+$color-middle: #bcd2dd;
+
+.talent-resume{
+    width:90%;
+    max-width: 350px;
+    background-color:$color-dark;
+    color: $color-light;
+    border-radius: 25px;
+    font-family: $title-font;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:15px;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+
+    .talent-img{
+        width:100%;
+        height: auto;
+        border-top-right-radius: 25px;
+        border-top-left-radius: 25px;
+    }
+
+    .talent-name{
+        width:80%;
+        text-align: left;
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    
+
+    .talent-reviews-price-div{
+        width:80%;
+        display:flex;
+        justify-content: space-between;
+    
+        .talent-reviews{
+            font-size:12px;
+
+            .star{
+                width:20px;
+                height: auto;
+            }
+        }
+
+        .talent-price{
+            color:$color-yellow;
+        }
+    }
+
+    .tags-title{
+        font-size: 12px;
+        font-family: $text-font;
+        margin-top:20px;
+    }
+
+    .talent-tags-div{
+        display:flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width:90%;
+        margin-bottom:15px;
+
+        .tag{
+            font-family: $text-font;
+            font-size: 12px;
+            background-color: $color-middle;
+            color: $color-dark;
+            padding:5px 15px;
+            border-radius: 20px;
+            margin:3px;
+
+        }
+    }
+}

@@ -1,3 +1,61 @@
+@import '~rodal/lib/rodal.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat:600');
+$title-font: 'Montserrat', sans-serif;
+$text-font: 'Lato', sans-serif;
+
+
+$color-light: #f5f5f5;
+$color-dark: #202d3f;
+$color-middle-dark: #71828C;
+$color-yellow:#ffbd44;
+$color-middle: #bcd2dd;
+
+
 #navBar{
-    background-color: cadetblue;
+    display:flex;
+    // justify-content: flex-end;
+    background-color: $color-dark;
+    height:70px;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+
+    #logo-nav{
+        height:35px;
+        width: auto;
+        margin-left:10px;
+        margin-right:25px;
+    }
+
+    .button-nav{
+        background-color: $color-dark;
+        height:40px;
+        width: 40px;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $color-light;
+    }
+
+    #search-bar{
+        background-color: $color-dark;
+        border-radius:18px;
+        width:20vw;
+        height:28px;
+        border-right-style: none;
+
+        
+
+    }
+
+    #login-button{
+            background-color: $color-yellow;
+            color: $color-dark;
+            border-style:none;
+            width:80px;
+            height:30px;
+            font-weight: bolder;
+            border-radius:15px;
+            margin-right:10px;
+    }
 }
