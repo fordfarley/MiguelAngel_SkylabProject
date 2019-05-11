@@ -149,7 +149,7 @@ export default class Profile extends Component {
                               <div className="talents-title">Talents:</div>
                               {talents.map((talent,i) =>{
                                 //  console.log(talent);
-                                 return <div className="talent-link" onClick={()=>this.redirect(i)}><TalentResume talent={talent}/></div>;
+                                 return <div key={i} className="talent-link" onClick={()=>this.redirect(i)}><TalentResume talent={talent}/></div>;
                                 })
                               }
                             

@@ -10,14 +10,21 @@ import {Route, Switch} from 'react-router-dom';
 import Talent from './pages/Talent';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
+import PrivateProfile from './pages/PrivateProfile';
+import EditProfile from './pages/EditProfile';
+import Search from './pages/Search';
 
 
 
 export default function Routes(props) {
   return (
     <Switch>
+        <Route path="/search/:id" component={Search} />
+        <Route path="/search/" component={Search} />
         <Route path="/profile/:id" component={Profile} />
         <Route path="/talent/:id" component={Talent} />
+        <Route path="/userProfile" component={PrivateProfile} />
+        <Route path="/editProfile" component={EditProfile} />
         <Route path="/" component={Home} />
     </Switch>
   )

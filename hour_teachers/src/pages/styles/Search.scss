@@ -1,0 +1,29 @@
+@import './BaseDefinitions';
+
+#filter-bar{
+    background-color: $color-middle-dark;
+    display:flex;
+    justify-content: flex-end;
+    color:$color-light;
+
+    #icon-filters{
+        height: 20px;
+        width: auto;
+        margin:10px 20px;
+    }
+}
+
+#filter-menu{
+    background-color: $color-middle-dark;
+}
+
+#talents-div{
+    width:100%;
+    display:flex;
+    justify-content:space-evenly;
+    flex-wrap: wrap;
+
+    .talent-link{
+        display: contents;
+    }
+}

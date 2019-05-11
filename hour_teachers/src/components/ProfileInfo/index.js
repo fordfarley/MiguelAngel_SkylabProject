@@ -3,7 +3,7 @@ import ReviewStars from '../ReviewStars';
 // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { Component } from 'react';
 import Medal from '../Medal';
-import { HashLink as Link } from "react-router-hash-link";
+// import { HashLink as Link } from "react-router-hash-link";
 
 export default class ProfileInfo extends Component {
   constructor(props){
@@ -55,9 +55,9 @@ export default class ProfileInfo extends Component {
             <div>{medals.length>0 && <div id="medals-div">
                 {medals.map((med,i) =>{
                     if(i<=numVisibleMedals){
-                        return <Medal name={med.name} number={med.number} size={"s"}/>;
+                        return <Medal key={i} name={med.name} number={med.number} size={"s"}/>;
                     }
-                    else{return <span></span>;}
+                    else{return <span key={i}></span>;}
                     })
                 }
                 
@@ -71,12 +71,12 @@ export default class ProfileInfo extends Component {
             <div>{reviews.length>0 && <div id="reviews-div">
                 {reviews.map((rev,i) =>{
                     if(i<=numVisibleReviews){
-                        return (<div className='review-div'>
+                        return (<div key={i} className='review-div'>
                                     <ReviewStars valor={rev.value}/>
                                     <div>{rev.comment}</div>
                                 </div>);
                     }
-                    else{return <span></span>;}
+                    else{return <span key={i}></span>;}
                     })
                 }
                 

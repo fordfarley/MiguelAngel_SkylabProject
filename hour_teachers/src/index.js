@@ -4,18 +4,18 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-// import { createStore } from 'redux';
-// import { Provider } from 'react-redux';
-// import reducers from './redux/reducers';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import reducers from './redux/reducers';
 
-// const store = createStore(reducers);
+const store = createStore(reducers);
 
 
 
 const firebase = require('firebase/app');
 
 var firebaseConfig = {
-    apiKey: "AIzaSyDDKAuYQ4rNp8JzzOEZW3Jgk4BSZyUkWIE",
+    apiKey: process.env.REACT_APP_API_KEY,
     authDomain: "web-hour-teachers.firebaseapp.com",
     databaseURL: "https://web-hour-teachers.firebaseio.com",
     projectId: "web-hour-teachers",
@@ -25,9 +25,9 @@ var firebaseConfig = {
   firebase.initializeApp(firebaseConfig);
 
 ReactDOM.render(
-    // <Provider store={store}>
+    <Provider store={store}>
       <App />
-    // </Provider>  
+    </Provider>  
     , document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

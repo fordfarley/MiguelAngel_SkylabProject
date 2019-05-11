@@ -52,7 +52,7 @@ export default class TeacherInfo extends Component {
             <div className="separador"></div>
             <div id="medals-div">
                 {medals.map((med,i) =>{
-                    return <Medal name={med.name} number={med.number} size={"s"}/>;
+                    return <Medal key={i} name={med.name} number={med.number} size={"s"}/>;
                     })
                 }
                 
@@ -60,7 +60,7 @@ export default class TeacherInfo extends Component {
             
             <div id="reviews-comments">
                 {teacher.reviewsTeacher.map((rev,i) =>{
-                    return <div className="alumno-review">
+                    return <div className="alumno-review" key={i}>
                                 <ReviewStars valor={rev.value}></ReviewStars>
                                 <div className="comment">{rev.comment}</div>
                         </div>;

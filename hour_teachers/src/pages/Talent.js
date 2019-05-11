@@ -4,10 +4,11 @@ import ReviewStars from "../components/ReviewStars";
 import TeacherInfo from "../components/TeacherInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { HashLink as Link } from "react-router-hash-link";
+import WithUser from '../helpers/WithUser';
 
 import DataService from "../services/DataService";
 
-export default class Talent extends Component {
+class Talent extends Component {
   constructor(props) {
     super(props);
 
@@ -19,8 +20,8 @@ export default class Talent extends Component {
   }
 
   async componentDidMount() {
-    // const talent = await DataService.getObject("talents",this.props.match.params.id);
-    const talent = await DataService.getObject("talents","8IRuwRo8ONpFBWK5JrH2");
+    const talent = await DataService.getObject("talents",this.props.match.params.id);
+    // const talent = await DataService.getObject("talents","8IRuwRo8ONpFBWK5JrH2");
     const loading = false;
     this.setState({ talent, loading });
   }
@@ -37,6 +38,7 @@ export default class Talent extends Component {
 
   render() {
     let { descriptionVisible, talent, loading } = this.state;
+    console.log(this.props.userInfo);
 
     return (
         <div>
@@ -89,7 +91,7 @@ export default class Talent extends Component {
                 <div id="talent-reviews-title">Talent Reviews</div>
                 {talent.reviews.map((rev, i) => {
                 return (
-                    <div className="talent-review">
+                    <div key={i} className="talent-review">
                     <ReviewStars valor={rev.value} />
                     <div className="comment">{rev.comment}</div>
                     </div>
@@ -102,3 +104,5 @@ export default class Talent extends Component {
     );
   }
 }
+
+export default WithUser(Talent);
