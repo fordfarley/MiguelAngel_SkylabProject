@@ -28,8 +28,9 @@ export default class Profile extends Component {
   async componentDidMount() {
     //Accedemos a la base de datos para conseguir el perfil del usuario
     // const user = await DataService.getObject("users",this.props.match.params.id);
-    const user = await DataService.getObject("users","t24EjF3RUilVCqL6bh7K");
+    const user = await DataService.getObject("users",this.props.match.params.id);
     const loading = false;
+   
 
     //Accedemos a la base de datos para conseguir las medallas del usuario como profesor
     let medalsTeacher=[];
@@ -98,6 +99,7 @@ export default class Profile extends Component {
       medalsStudent,
       user} 
       = this.state;
+      
 
     if(profileVisible === "teacher"){
       return(
@@ -128,7 +130,6 @@ export default class Profile extends Component {
           user,
           loading } 
           = this.state;
-    
 
     return (
         <div id="profile-page">

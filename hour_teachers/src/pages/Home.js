@@ -16,15 +16,15 @@ class Home extends Component {
     super(props);  
     this.state = { 
       visible: false,
-      // username:"",
+      name:"",
       mail: "",
       pass: "",
       errorMessage:""};
 }
 
-// onChangeName = (event) =>{
-//   this.setState({username:event.target.value});
-// }
+onChangeName = (event) =>{
+  this.setState({name:event.target.value});
+}
 
 onChangeEmail = (event) =>{
   this.setState({mail:event.target.value, errorMessage:""});
@@ -48,12 +48,17 @@ componentDidMount() {
   AuthService.registerAuthObserver(async (user) => {
     if (user) {
       // User is signed in.
-      const {mail} = this.state;
+      const {mail,name} = this.state;
+      const defaultProfileImg = "https://firebasestorage.googleapis.com/v0/b/web-hour-teachers.appspot.com/o/profile-img%2FProfileDefaultb-16.jpg?alt=media&token=0f7f7c55-c092-4bdd-824a-6c5339bea710";
       if(mail){
-        const success = await DataService.addObjectWithId('users', user.uid, {mail, uid:user.uid});
+        let data={mail, uid:user.uid, hosts:false, medalsStudent:[], medalsTeacher:[], 
+                  reviewsStudent:[],reviewsTeacher:[],photo:defaultProfileImg,name:name,
+                  talents:[],totalReviewStudent:0,totalReviewTeacher:0, favorites:[], 
+                  requests:[], reviewsPending:[],phone:"",location:null};
+        const success = await DataService.addObjectWithId('users', user.uid, data);
         if(success) {
           // console.log("GUARDAR NUEVO USUARIO EN REDUX");
-          this.props.history.push('/talent/1');
+          this.props.history.push('/search/');
         }
       }
       
@@ -68,12 +73,12 @@ componentDidMount() {
 
 handleSignUp = async (e) =>{
   e.preventDefault();
-  let {mail, pass} = this.state;
+  let {mail, pass, name} = this.state;
 
   // this.setState({errorMessage: ''});
 
-    if(!mail || !pass) {
-      this.setState({errorMessage: 'Email y password necesarios para el registro'});
+    if(!mail || !pass || !name) {
+      this.setState({errorMessage: 'Username, email y password necesarios para el registro'});
       return;
     }
 
@@ -81,13 +86,15 @@ handleSignUp = async (e) =>{
 
     if(error) {
       this.setState({errorMessage: AuthService.getErrorMessage(error)});
+    } else{
+      this.setState({visible:false});
     }
 
-  this.setState({visible:false});
+  
 }
 
 render() {
-    const {visible,email,pass,errorMessage} = this.state;
+    const {visible,email,pass,name,errorMessage} = this.state;
     return (
         <div id="home-page">
             <div id="signin-block">
@@ -108,8 +115,8 @@ render() {
 
                   <div className="rodal-title">Sign up</div>
                   <form onSubmit={this.handleSignUp}>
-                    {/* <input className="rodal-input-text" onChange={this.onChangeName}
-                     type="text" placeholder="userName" value={username}></input> */}
+                    <input className="rodal-input-text" onChange={this.onChangeName}
+                     type="text" placeholder="Username" value={name}></input>
                     <input className="rodal-input-text"  
                         onChange={this.onChangeEmail}
                         type="text"

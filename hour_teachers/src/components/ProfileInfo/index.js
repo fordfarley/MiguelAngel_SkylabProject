@@ -47,11 +47,12 @@ export default class ProfileInfo extends Component {
 
     let {reviews, medals, totalReview}=this.props;
     let{numVisibleMedals,visibleMedals, numVisibleReviews, visibleReviews}=this.state;
+    let valoracion=(totalReview / reviews.length);
+    if(isNaN(valoracion)){valoracion=0}
 
-    
     return (
       <div className="profile-info">
-            <ReviewStars valor={(totalReview / reviews.length).toFixed(1)}/>
+            <ReviewStars valor={valoracion.toFixed(1)}/>
             <div>{medals.length>0 && <div id="medals-div">
                 {medals.map((med,i) =>{
                     if(i<=numVisibleMedals){

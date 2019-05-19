@@ -20,9 +20,9 @@ import DataService from './services/DataService';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faAngleDown, faAngleUp, faHeart, faMedal, faBriefcase, faGraduationCap, faSearch,
-          faUser,faSlidersH} from '@fortawesome/free-solid-svg-icons';
+          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar} from '@fortawesome/free-solid-svg-icons';
 library.add(fab, faCheckSquare, faAngleDown, faAngleUp,faHeart,faMedal,faBriefcase,faGraduationCap,faSearch,
-          faUser,faSlidersH);
+          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar);
 
 
 class App extends React.Component {
@@ -37,6 +37,8 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    
+    //Establecemos un observer para detectar cambios en el Auth
     AuthService.registerAuthObserver(async (user) => {
       if (user) {
         console.log('User is signed in '+user.uid);

@@ -5,16 +5,100 @@
     display:flex;
     justify-content: flex-end;
     color:$color-light;
+    position:absolute;
+    z-index:10;
+    top: 70px;
+    right:0px;
+    width:100%;
+
 
     #icon-filters{
         height: 20px;
         width: auto;
         margin:10px 20px;
+        border-radius: 20px;
+            border-style: solid;
+            border-color:$color-yellow;
+            border-width: 0px;
+        transition: all 1s ease-in-out;
+
+        
+        &.activated{
+            margin:5px 15px;
+            color:$color-yellow;
+            height:22px;
+            width:auto;
+            border-radius: 20px;
+            border-style: solid;
+            border-color:$color-yellow;
+            border-width: 2px;
+            padding:3px;
+            transition:all 1s;
+        
+        }
     }
 }
 
 #filter-menu{
+    z-index: 10;
+    position: absolute;
+    width:100%;
+    top: 110px;
+    right:0px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    max-height:0px;
+    overflow: hidden;
     background-color: $color-middle-dark;
+    transition: all 1s ease-in-out;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    padding-top:0px;
+    
+    &.visible{
+        padding-top:40px;
+        max-height: 100vh;
+    }
+
+    .filter-field{
+        display:flex;
+        align-items: center;
+        justify-content:center;
+        margin-top: 15px;
+
+        .filter-tag{
+            color:$color-light;
+            font-size:12px;
+            font-family: $text-font;
+            font-weight: 600;
+            
+        }
+
+        .filter-tag-value{
+            color:$color-middle;
+            font-size:16px;
+            font-family: $text-font;
+            
+            
+        }
+
+        .filter-select{
+            height:30px;
+            border-radius:15px;
+            padding:0 10px;
+            border-style: none;
+            background-color: $color-light;
+            font-family: $text-font;
+            margin-left: 15px;
+        }
+
+        .filter-range{
+            border-radius:15px;
+            margin-left: 15px;
+            width:55%;
+        }
+    }
 }
 
 #talents-div{
@@ -22,8 +106,33 @@
     display:flex;
     justify-content:space-evenly;
     flex-wrap: wrap;
+    padding-top:50px;
+    margin-bottom:20px;
 
     .talent-link{
         display: contents;
     }
 }
+
+#apply-button{
+    background-color: $color-middle;
+    border-style: none;
+    height:35px;
+    padding:0 20px;
+    border-radius:17.5px;
+    font-family: $text-font;
+    font-weight: 600;
+    color:$color-dark;
+    margin:15px 0;
+    margin-bottom:40px;
+}
+
+#location-message{
+    color:$color-middle;
+    font-size:12px;
+    font-family: $text-font;
+    font-weight: 600;
+    width:60%;
+    margin:25px 0;
+}
+

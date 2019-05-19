@@ -24,6 +24,7 @@ var firebaseConfig = {
   };
   firebase.initializeApp(firebaseConfig);
 
+  
 ReactDOM.render(
     <Provider store={store}>
       <App />

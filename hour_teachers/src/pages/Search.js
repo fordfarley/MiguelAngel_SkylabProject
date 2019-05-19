@@ -4,6 +4,7 @@ import './styles/Search.scss';
 import DataService from '../services/DataService';
 import SearchService from '../services/SearchService';
 import {withRouter} from 'react-router-dom';
+import WithUser from '../helpers/WithUser';
 import TalentResume from '../components/TalentResume';
 import React, { Component } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,7 +23,7 @@ let talent1 = {description:"Lorem ipsum dolor sit amet, consectetur adipiscing e
                 totalReview:14.2
                }
 
-export default class Search extends Component {
+class Search extends Component {
   constructor(props){
       super(props);
 
@@ -31,8 +32,14 @@ export default class Search extends Component {
           searchResult:[],
           numResults:0,
           loading:true,
+          locationDisabled:true,
           filterVisible:false,
-          priceValue:20
+          priceValue:20,
+          orderPrice:"disabled",
+          orderReview:"disabled",
+          maxPrice:"150",
+          minReviews:"0",
+          maxDistance:"150"
       }
   }
 
@@ -48,6 +55,9 @@ export default class Search extends Component {
         
   }
 
+  changeSelect = (e) => {
+    this.setState({[e.target.name]: e.target.value})
+  }
   
 
   redirect = (index) =>{
@@ -57,32 +67,99 @@ export default class Search extends Component {
 
   changeVisible = () =>{
       let {filterVisible}=this.state;
-      this.setState({filterVisible:!filterVisible});
+      let locationDisabled=true;
+      if(this.props.userInfo){
+         if(this.props.userInfo.location !==null){
+            locationDisabled=false;
+         }
+      }
+      this.setState({filterVisible:!filterVisible, locationDisabled});
   }
 
+  applyFilters = () =>{
+      let {talentList,orderPrice, orderReview, maxPrice, minReviews, maxDistance}=this.state;
 
-//   ________________________________________________________________Esta no debe ir aquí....
-  anadir = async () =>{
-      await DataService.addObjectWithoutId("talents",talent1)
+      this.setState({loading:true});
+      let location={lat:0,long:0};
+      let useLocation=false;
+      let searchResult=[];
+
+      if(this.props.userInfo){
+          location=this.props.userInfo.location;
+          useLocation=true;
+      }
+
+      if(this.props.match.params.id){
+        let words=this.props.match.params.id;
+        searchResult= SearchService.searchFiltered(words,true,talentList,maxPrice,orderPrice,minReviews,orderReview,maxDistance,location,useLocation);
+      } else{
+        searchResult= SearchService.searchFiltered("",false,talentList,maxPrice,orderPrice,minReviews,orderReview,maxDistance,location,useLocation);
+      } 
+
+      let numResults=searchResult.length;
+      this.setState({searchResult, numResults, loading:false, filterVisible:false});
   }
-
 
 
   render() {
-    const {searchResult,loading,numResults,filterVisible}=this.state;
+    // console.log("Estado",this.state);
+    const {searchResult,loading,numResults,filterVisible,maxPrice,minReviews,maxDistance,locationDisabled}=this.state;
     return (
       <div>
-          {/* <button onClick={this.anadir}>Añadir</button> */}
           <div onClick={this.changeVisible} id="filter-bar">
                <div id='tags-filters'></div>
-               <div><FontAwesomeIcon id="icon-filters" icon="sliders-h"/> </div>
+               <div><FontAwesomeIcon id="icon-filters" className={filterVisible ? 'activated' : 'non' } icon="sliders-h"/> </div>
           </div>
-          {filterVisible && <div id='filter-menu'>
-                
-          </div>}
-          <div><span>Search results: </span>{numResults}</div>
+          <div id='filter-menu' className={filterVisible ? 'visible' : null }>
+              <div className={"filter-field"}>
+                  <div className="filter-tag">Order by price:</div>
+                  <select onChange={this.changeSelect} name="orderPrice" className="filter-select">
+                      <option className="filter-select-option" value="disabled">Disabled</option>
+                      <option className="filter-select-option" value="ascend">Ascend.</option>
+                      <option className="filter-select-option" value="descend">Descend.</option>
+                  </select>
+              </div>
+              <div className={"filter-field"}>
+                  <div><div className="filter-tag">Max. price:</div>
+                  <div className="filter-tag-value">{maxPrice+" €/h"}</div>
+                  </div>
+                  <input type="range" onChange={this.changeSelect} 
+                        name="maxPrice" className="filter-range" 
+                        min="0" max="150" step="5"
+                        value={maxPrice}/>
+              </div>
+              <div className={"filter-field"}>
+                  <div className="filter-tag">Order by reviews:</div>
+                  <select onChange={this.changeSelect} name="orderReview" className="filter-select">
+                      <option className="filter-select-option" value="disabled">Disabled</option>
+                      <option className="filter-select-option" value="ascend">Ascend.</option>
+                      <option className="filter-select-option" value="descend">Descend.</option>
+                  </select>
+              </div>
+              <div className={"filter-field"}>
+                  <div><div className="filter-tag">Min. rating:</div>
+                  <div className="filter-tag-value">{minReviews+" "}<FontAwesomeIcon icon="star" /></div>
+                  </div>
+                  <input type="range" onChange={this.changeSelect} 
+                        name="minReviews" className="filter-range" 
+                        min="0" max="5" step="0.5"
+                        value={minReviews}/>
+              </div>
+              {!locationDisabled && <div className={"filter-field"}>
+                  <div><div className="filter-tag">Max. distance:</div>
+                  <div className="filter-tag-value">{maxDistance+" Km"}</div>
+                  </div>
+                  <input type="range" onChange={this.changeSelect} 
+                        name="maxDistance" className="filter-range" 
+                        min="0" max="150" step="5"
+                        value={maxDistance}/>
+              </div>}
+              {locationDisabled && <div id="location-message">To use the location filter you must set a location for your profile</div>}
+              <div><button onClick={this.applyFilters} id="apply-button">Apply</button></div>
+          </div>
+          
           {!loading && <div id="talents-div">
-                              
+                              <div><span>Search results: </span>{numResults}</div>
                               {searchResult.map((talent,i) =>{
                                  return <div
                                             key={i}
@@ -97,4 +174,8 @@ export default class Search extends Component {
       </div>
     )
   }
+
+
 }
+
+export default WithUser(Search);

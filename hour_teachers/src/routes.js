@@ -13,6 +13,12 @@ import Profile from './pages/Profile';
 import PrivateProfile from './pages/PrivateProfile';
 import EditProfile from './pages/EditProfile';
 import Search from './pages/Search';
+import Add_Edit_Talent from './pages/Add_Edit_Talent';
+import MyTalents from './pages/MyTalents';
+import FavoriteTalents from './pages/FavoriteTalents';
+import EditRequest from './pages/EditRequest';
+import EditLocation from './pages/EditLocation';
+
 
 
 
@@ -25,6 +31,11 @@ export default function Routes(props) {
         <Route path="/talent/:id" component={Talent} />
         <Route path="/userProfile" component={PrivateProfile} />
         <Route path="/editProfile" component={EditProfile} />
+        <Route path="/editLocation" component={EditLocation} />
+        <Route path="/editTalent/:id" component={Add_Edit_Talent} />
+        <Route path="/editRequest/:id" component={EditRequest} />
+        <Route path="/myTalents" component={MyTalents} />
+        <Route path="/favoriteTalents" component={FavoriteTalents} />
         <Route path="/" component={Home} />
     </Switch>
   )
