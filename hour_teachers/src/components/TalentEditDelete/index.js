@@ -16,12 +16,15 @@ class TalentEditDelete extends Component {
   }
 
   render() {
+
+    let valoracion = this.props.talent.totalReview/this.props.talent.reviews.length
+    if(isNaN(valoracion)){valoracion=0;}
     return (
       <div className="talent-resume">
         <img className="talent-img" src={this.props.talent.img} alt="talent description" />
         <div className="talent-name">{this.props.talent.name}</div>
         <div className="talent-reviews-price-div">
-            <div className="talent-reviews"><ReviewStarsYellow valor={(this.props.talent.totalReview/this.props.talent.reviews.length).toFixed(1)}/></div>
+            <div className="talent-reviews"><ReviewStarsYellow valor={(valoracion).toFixed(1)}/></div>
             <div className="talent-price">{this.props.talent.price+" €/h"}</div>
         </div>
         <div className="talent-buttons-div">

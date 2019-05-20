@@ -20,9 +20,10 @@ import DataService from './services/DataService';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faAngleDown, faAngleUp, faHeart, faMedal, faBriefcase, faGraduationCap, faSearch,
-          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar} from '@fortawesome/free-solid-svg-icons';
+          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar, faTimesCircle,
+          faCalendarPlus} from '@fortawesome/free-solid-svg-icons';
 library.add(fab, faCheckSquare, faAngleDown, faAngleUp,faHeart,faMedal,faBriefcase,faGraduationCap,faSearch,
-          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar);
+          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar, faTimesCircle,faCalendarPlus);
 
 
 class App extends React.Component {

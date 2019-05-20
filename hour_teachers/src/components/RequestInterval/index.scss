@@ -1,0 +1,87 @@
+@import '../../pages/styles/BaseDefinitions';
+
+.request-container{
+
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: $color-middle;
+    border-radius:20px;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    
+}
+
+.request-container-error{
+
+    width:80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E3ABB0;
+    border-radius:20px;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    
+}
+
+
+
+.day-container{
+    width:80%;
+    margin-top:20px;
+    margin-bottom:20px;
+    display:flex;
+    justify-content: space-between;
+    
+    .day-placer{
+        background-color: $color-light;
+        width:65%;
+        border-radius:15px;
+    }
+
+    .day-button{
+        width:30px;
+        height:30px;
+        border-radius:15px;
+        border-style: none;
+        background-color: $color-light;
+    }
+}
+
+.hour-div{
+    display:flex;
+    margin-bottom:5px;
+
+    .tag-request{
+        width:90px;
+        margin-left:15px;
+    }
+}
+
+.request-error-message{
+    font-family: $text-font;
+    font-size:12px;
+    margin-top:10px;
+    color:$color-light;
+    font-weight: 600;
+}
+
+.request-close{
+    display:flex;
+    justify-content: flex-end;
+    width:93%;
+    margin-top:10px;
+
+    .request-close-button{
+        color:$color-light;
+        width:15px;
+        height:15px;
+    
+    }
+}

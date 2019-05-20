@@ -54,7 +54,7 @@ componentDidMount() {
         let data={mail, uid:user.uid, hosts:false, medalsStudent:[], medalsTeacher:[], 
                   reviewsStudent:[],reviewsTeacher:[],photo:defaultProfileImg,name:name,
                   talents:[],totalReviewStudent:0,totalReviewTeacher:0, favorites:[], 
-                  requests:[], reviewsPending:[],phone:"",location:null};
+                  requests:[], reviewsPending:[],phone:"",location:null,contacts:[]};
         const success = await DataService.addObjectWithId('users', user.uid, data);
         if(success) {
           // console.log("GUARDAR NUEVO USUARIO EN REDUX");

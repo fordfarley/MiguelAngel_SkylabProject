@@ -85,7 +85,7 @@ class EditProfile extends Component {
     //   console.log("file",file);
     //   console.log("TCL: ContactForm -> onFileSelected -> file", file)
     if (file) {
-      StorageService.uploadFile(file, "contact-images", imageUrl => {
+      StorageService.uploadFile(file, "profile-img", imageUrl => {
         this.setState({ photo: imageUrl });
       });
     }
@@ -108,7 +108,7 @@ class EditProfile extends Component {
         animation={"slideUp"}
         className="rodal-div"
       >
-        <div className="rodal-title">Location Saved</div>
+        <div className="rodal-title">Saved succesfully</div>
         <button onClick={this.hide} className="rodal-send-button">
           Ok >
         </button>

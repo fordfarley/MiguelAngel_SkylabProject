@@ -11,6 +11,7 @@ import TagDelete from "../components/TagDelete";
 
 import React, { Component } from "react";
 import DataService from "../services/DataService";
+import StorageService from "../services/StorageService";
 
 // New Date()
 
@@ -34,6 +35,7 @@ class EditProfile extends Component {
     if (this.props.match.params.id !== "0"){
         let talent= await DataService.getObject('talents',this.props.match.params.id);
         this.setState({talentName:talent.name,
+                       img:talent.img,
                        description:talent.description,
                        price:talent.price,
                        tags:talent.tags});
@@ -68,6 +70,15 @@ class EditProfile extends Component {
 
   hide = () =>{
     this.props.history.goBack();
+  }
+
+  uploadPhoto = (e) =>{
+    const file = e.target.files[0];
+    if (file) {
+      StorageService.uploadFile(file, "talents-img", imageUrl => {
+        this.setState({ img: imageUrl });
+      });
+    }
   }
 
   saveTalent = async () => {
@@ -135,10 +146,23 @@ class EditProfile extends Component {
       newTag,
       tags,
       errorMessage,
-      visible
+      visible,
+      img
     } = this.state;
     return (
       <div id="home-page">
+        <div id="edit-talent-img">
+            <img id="current-talent-img" src={img} alt="profile user" />
+            <input id="talent-file" type="file" onChange={this.uploadPhoto} />
+            <div id="recomendation">Preferred size: 1920x650</div>
+            <label
+              id="label-file"
+              className={"talent-button"}
+              htmlFor="talent-file"
+            >
+              Edit photo
+            </label>
+        </div>
         <div id="talent-form">
           {this.props.userInfo && (
             <div className="input-field" id="teacher-name">

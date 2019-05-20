@@ -190,7 +190,7 @@ class NavigationBar extends Component {
                 to={`/EditProfile`}
               >
                 <li className="opcion-menu">
-                  <span className="text-menu">Item1</span>
+                  <span className="text-menu">Edit profile</span>
                 </li>
               </Link>
               <Link
