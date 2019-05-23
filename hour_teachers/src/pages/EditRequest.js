@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import "./styles/EditRequest.scss";
 import ReviewStars from "../components/ReviewStars";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { HashLink as Link } from "react-router-hash-link";
 import WithUser from '../helpers/WithUser';
 import RequestInterval from '../components/RequestInterval';
 import Rodal from "rodal";
@@ -11,7 +10,7 @@ import {withRouter} from 'react-router-dom';
 
 import DataService from "../services/DataService";
 
-class Talent extends Component {
+class EditRequest extends Component {
   constructor(props) {
     super(props);
 
@@ -74,14 +73,14 @@ class Talent extends Component {
     }else{
 
       let {talent, phone, mail, userName, requestIntervals, userId}=this.state;
-      let newRequest = {idStudent:userId, idTeacher: talent.teacher, talent: talent.name, 
-                          contact:{phone,mail,name:userName}, intervals:requestIntervals};
+      let newRequest = {status:"pending", idStudent:userId, idTeacher: talent.teacher, teacherName:talent.teacherName, talent: talent.name, 
+                        talentId:this.props.match.params.id, contact:{phone,mail,name:userName}, intervals:requestIntervals};
       
       //Añadimos la request al student
-      let student= await DataService.getObject('users',userId);
-      let stRequests = student.requests.slice();
-      stRequests.push(newRequest);
-      await DataService.updateDetail('users',userId,{requests:stRequests});
+      // let student= await DataService.getObject('users',userId);
+      // let stRequests = student.requests.slice();
+      // stRequests.push(newRequest);
+      // await DataService.updateDetail('users',userId,{requests:stRequests});
 
       //Añadimos la request al teacher
       let teacher= await DataService.getObject('users',talent.teacher);
@@ -289,4 +288,4 @@ class Talent extends Component {
   }
 }
 
-export default withRouter(WithUser(Talent));
+export default withRouter(WithUser(EditRequest));

@@ -106,17 +106,12 @@ class EditProfile extends Component {
           totalReview: 0
         };
 
-        // console.log("datos del talent",data);
-        // console.log("datos del usuario",this.props.userInfo)
-        let idNew = await DataService.addTalent(
+        
+        await DataService.addTalent(
           data,
           this.props.userInfo.uid,
           this.props.userInfo.talents
         );
-        
-        // let user=this.props.userInfo;
-        // user.talents.push(idNew);
-        // this.props.setUserInfo(user);
 
         this.setState({ visible: true });
       }else{

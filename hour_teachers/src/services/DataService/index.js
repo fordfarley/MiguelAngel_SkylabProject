@@ -15,10 +15,29 @@ export default class DataService{
         results.push(objectResult);
       }) 
     } catch (err) {
-			console.log("TCL: DataService -> getContacts -> err", err)
+			console.log("TCL: DataService -> getTalents -> err", err)
     }
     return results;
   }
+
+  static async getMedals() {
+    const db = firebase.firestore();
+    let results = [];
+
+    try {
+      const querySnapshot = await db.collection("medals").get();
+
+      querySnapshot.forEach(doc => {
+        const objectResult = doc.data();
+        objectResult.id = doc.id;
+        results.push(objectResult);
+      }) 
+    } catch (err) {
+			console.log("TCL: DataService -> getMedals -> err", err)
+    }
+    return results;
+  }
+
 
     static getObject= async(collection, objId)=> {
         const db = firebase.firestore();

@@ -21,9 +21,10 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import { faCheckSquare, faAngleDown, faAngleUp, faHeart, faMedal, faBriefcase, faGraduationCap, faSearch,
           faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar, faTimesCircle,
-          faCalendarPlus} from '@fortawesome/free-solid-svg-icons';
+          faCalendarPlus,faCheckCircle,faPlusCircle,faAward,faPhone,faEnvelope,faMobileAlt} from '@fortawesome/free-solid-svg-icons';
 library.add(fab, faCheckSquare, faAngleDown, faAngleUp,faHeart,faMedal,faBriefcase,faGraduationCap,faSearch,
-          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar, faTimesCircle,faCalendarPlus);
+          faUser,faSlidersH, faEdit, faTrashAlt, faMapMarkerAlt, faMapPin, faPencilAlt, faStar, faTimesCircle,
+          faCalendarPlus,faCheckCircle,faPlusCircle,faAward,faPhone,faEnvelope,faMobileAlt);
 
 
 class App extends React.Component {

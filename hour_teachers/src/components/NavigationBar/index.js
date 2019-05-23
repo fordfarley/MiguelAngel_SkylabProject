@@ -196,6 +196,25 @@ class NavigationBar extends Component {
               <Link
                 onClick={this.showMenu}
                 className="linkote"
+                to={`/myContacts`}
+              >
+              <li className="opcion-menu">
+                <span className="text-menu">Contacts</span>
+              </li>
+              </Link>
+              <Link
+                onClick={this.showMenu}
+                className="linkote"
+                to={`/myRequests`}
+              >
+              <li className="opcion-menu">
+                <span className="text-menu">Requests</span>
+              </li>
+              </Link>
+
+              <Link
+                onClick={this.showMenu}
+                className="linkote"
                 to={`/myTalents`}
               >
               <li className="opcion-menu">
@@ -208,8 +227,17 @@ class NavigationBar extends Component {
                 to={`/favoriteTalents`}
               >
               <li className="opcion-menu">
-                <span className="text-menu">My Favorites</span>
+                <span className="text-menu">Favorites</span>
               </li></Link>
+              {this.props.userInfo!==null && <div>{this.props.userInfo.reviewsPending.length>0 && 
+                              <Link
+                              onClick={this.showMenu}
+                              className="linkote"
+                              to={`/pendingReviews`}
+                            >
+                            <li className="opcion-menu">
+                                <FontAwesomeIcon icon="award" className="icono-notificacion" /><span className="text-menu">Pending Reviews</span>
+                            </li></Link>}</div>}
               <li onClick={this.logout} className="opcion-menu">
                 <span className="text-menu">Logout</span>
               </li>

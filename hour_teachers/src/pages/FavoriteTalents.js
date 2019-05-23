@@ -62,7 +62,7 @@ class FavoriteTalents extends Component {
   }
 
   render() {
-    let {loading, favorites, favoritesIds}=this.state;
+    let {loading, favorites}=this.state;
     console.log("favorites",favorites.length);
     return (
       <div id='favtalents-div'>

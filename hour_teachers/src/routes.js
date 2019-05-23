@@ -18,7 +18,9 @@ import MyTalents from './pages/MyTalents';
 import FavoriteTalents from './pages/FavoriteTalents';
 import EditRequest from './pages/EditRequest';
 import EditLocation from './pages/EditLocation';
-
+import MyRequests from './pages/MyRequests';
+import PendingReviews from './pages/PendingReviews';
+import MyContacts from './pages/MyContacts';
 
 
 
@@ -35,6 +37,9 @@ export default function Routes(props) {
         <Route path="/editTalent/:id" component={Add_Edit_Talent} />
         <Route path="/editRequest/:id" component={EditRequest} />
         <Route path="/myTalents" component={MyTalents} />
+        <Route path="/myContacts" component={MyContacts} />
+        <Route path="/myRequests" component={MyRequests} />
+        <Route path="/pendingReviews" component={PendingReviews} />
         <Route path="/favoriteTalents" component={FavoriteTalents} />
         <Route path="/" component={Home} />
     </Switch>

@@ -6,7 +6,7 @@ export default function ReviewStars(props) {
   let middle_star = require('../../../img/star-middle-yellow.svg');
   let empty_star = require('../../../img/star-empty-yellow.svg');
 
-  if(valor>0){
+  if(valor=>0){
   return (
     <div className='review-stars'>
        {//"Primera estrella" 
