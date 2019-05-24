@@ -1,3 +1,6 @@
+![image](https://raw.githubusercontent.com/fordfarley/MiguelAngel_SkylabProject/develop/hour_teachers/HourTeachers-Logo-17.png)
+_______________________________________________________________________________________________________
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 # Hour teachers
@@ -27,6 +30,10 @@ This is an open platform to all kinds of knowledge, and is based on users experi
 
 In other less specific terms, the platform allows you to **keep in touch with professionals** in each subject, to be known in a specific field, and to **expand your knowledge and your personal circle** based on a wide range of enriching experiences.
 
+## Flowchart
+
+
+![image](https://github.com/fordfarley/MiguelAngel_SkylabProject/blob/develop/hour_teachers/Flowchart%20(1).png?raw=true)
 
 ## Data Model
 
