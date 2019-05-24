@@ -55,12 +55,15 @@ export default class SearchService{
     //Si le pasamos un true en reversed nos la devolverá al revés
     static sortByPrice = (talentList,reversed) =>{
         talentList.sort((a,b)=>{
-            return a.price - b.price;
+            // Pasamos a número los precios por si hubiera algún string
+            return parseFloat(a.price) - parseFloat(b.price);
         })
 
+        //Si la desean a la inversa solo le damos la vuelta
         if(reversed){
             return talentList.reverse();
         }
+        
         return talentList;
     }
 
@@ -81,6 +84,9 @@ export default class SearchService{
             let valuea = a.totalReview / a.reviews.length;
             let valueb = b.totalReview / b.reviews.length;
 
+            //Cuando no hay reviews se da este caso, ya que dividimos 0 entre 0.
+            if(isNaN(valuea)){valuea = 0}
+            if(isNaN(valueb)){valueb = 0}
             return valuea - valueb;
         })
 
@@ -94,7 +100,10 @@ export default class SearchService{
     static filterByReviews = (talentList, reviewValue) =>{
         let result=talentList.filter(elem => {
             let valueElem = (elem.totalReview / elem.reviews.length).toFixed(1);
+            
+            //Caso en que como decimos no haya reviews 0/0
             if(isNaN(valueElem)){valueElem=0;}
+
             return valueElem >= reviewValue;
         });
 
@@ -158,6 +167,20 @@ export default class SearchService{
             searchResults = this.searchTheWords(searchResults,words);
         }
 
+        //Filtrado por distancia____________________________________________________________
+        if(useLocation){
+            searchResults = this.filterByDistance(searchResults, location, maxDistance);
+            searchResults = this.sortByDistance(searchResults, location, true);
+        }
+
+        
+        //Filtrado por reviews______________________________________________________________
+        searchResults = this.filterByReviews(searchResults,minReviews);
+        //Ordenamos el resultado si es necesario.
+        if(orderReview!=="disabled"){
+            searchResults=this.sortByReviews(searchResults,(orderReview==="ascend"));
+        }
+
         //Filtrado por precio______________________________________________________________
         searchResults = this.filterByPrice(searchResults,maxPrice);
         //Ordenamos el resultado si es necesario. 
@@ -165,11 +188,20 @@ export default class SearchService{
             searchResults=this.sortByPrice(searchResults,(orderPrice==="descend"));
         }
 
-        //Filtrado por reviews______________________________________________________________
-        searchResults = this.filterByReviews(searchResults,minReviews);
-        //Ordenamos el resultado si es necesario.
-        if(orderReview!=="disabled"){
-            searchResults=this.sortByReviews(searchResults,(orderReview==="ascend"));
+
+
+
+        return searchResults;
+    
+    }
+
+    static searchFilteredWithoutLocation(words,useWords,talentList,maxPrice,orderPrice,minReviews,orderReview,maxDistance,location,useLocation){
+        let searchResults = talentList.slice();
+
+        //Filtrado por palabras si estas se deben usar...__________________________________
+        if(useWords){
+            words = this.eliminarDiacriticosEs(words);
+            searchResults = this.searchTheWords(searchResults,words);
         }
 
         //Filtrado por distancia____________________________________________________________
@@ -178,11 +210,26 @@ export default class SearchService{
             searchResults = this.sortByDistance(searchResults, location, true);
         }
 
+        
+        //Filtrado por reviews______________________________________________________________
+        searchResults = this.filterByReviews(searchResults,minReviews);
+        //Ordenamos el resultado si es necesario.
+        if(orderReview!=="disabled"){
+            searchResults=this.sortByReviews(searchResults,(orderReview==="ascend"));
+        }
+
+        //Filtrado por precio______________________________________________________________
+        searchResults = this.filterByPrice(searchResults,maxPrice);
+        //Ordenamos el resultado si es necesario. 
+        if(orderPrice!=="disabled"){
+            searchResults=this.sortByPrice(searchResults,(orderPrice==="descend"));
+        }
+
+
+
+
         return searchResults;
     
     }
-
-// var Barcelona ={lat : 41.3833, long : 2.1833}
-// var Madrid ={lat : 40.4000, long : -3.6833}
 
 }

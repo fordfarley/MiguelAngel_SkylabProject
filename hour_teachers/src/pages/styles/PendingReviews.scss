@@ -1,5 +1,8 @@
 @import './BaseDefinitions';
 
 .pending-reviews-container{
-    
+    display:flex;
+    flex-direction:row;
+    flex-wrap: wrap;
+    justify-content:center;
 }

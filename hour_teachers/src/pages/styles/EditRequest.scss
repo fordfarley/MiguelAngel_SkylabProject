@@ -1,6 +1,6 @@
 @import './BaseDefinitions';
 
-#talent-page{
+#talent-page-request-edit{
     // background-color:$color-light;
     padding-bottom: 30px;
     display:flex;
@@ -11,11 +11,11 @@
     background-color:#efefef;
     box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.15);
 
-    #talent-name{
+    #talent-name-request-edit{
         // width:90%;
         // align-self: center;
 
-        #talent-name-h1{
+        #talent-name-h1-request-edit{
             text-align:left;
             font-family: $title-font;
             color:$color-dark;
@@ -25,7 +25,7 @@
     }
     
 
-    #talent-text{
+    #talent-text-request-edit{
         text-align: left;
         padding:0 20px;
         display:flex;
@@ -33,21 +33,21 @@
         font-family: $text-font;
         color:$color-middle-dark;
 
-        #talent-info{
+        #talent-info-request-edit{
             
 
-            #teacher-name{
+            #teacher-name-request-edit{
                 margin-bottom:25px;
                 
             }
 
-            #talent-desc-title{
+            #talent-desc-title-request-edit{
                 display: flex;
                 justify-content: space-between;
             }
 
 
-            #valorac-precio{
+            #valorac-precio-request-edit{
                 display:flex;
                 flex-direction: row;
                 // align-items: center;
@@ -55,7 +55,7 @@
                 justify-content: space-evenly;
                 // background-color: tomato;
 
-                #precio{
+                #precio-request-edit{
                     font-size: 25px;
                     font-weight: 700;
                     margin:0;
@@ -91,7 +91,7 @@
         }
     }
 
-    #talent-reviews{
+    #talent-reviews-request-edit{
         display:flex;
         flex-direction: column;
         margin:30px auto;
@@ -100,14 +100,14 @@
         font-size:14px;
         color:$color-middle-dark;
 
-        #talent-reviews-title{
+        #talent-reviews-title-request-edit{
             font-size:16px;
             border-bottom-style: solid;
             border-bottom-width: 0.5px;
             border-bottom-color: $color-middle-dark;
         }
         
-        .talent-review{
+        .talent-review-request-edit{
             margin:5px;
             .star{
                 width:15px;
@@ -205,29 +205,91 @@
 
 @media (min-width:800px){  
 
-    #talent-page{
+    #talent-page-request-edit{
 
 
-        #talent-name{
-            width:80%;
+        #talent-name-request-edit{
+            width:60%;
             align-self: center;
+
+            #talent-name-h1-request-edit{
+
+                padding:0;
+
+            }
+            
     
         }
 
-        #talent-text{
+        #talent-text-request-edit{
             flex-direction:row;
-            justify-content: center;
+            justify-content: flex-start;
+            width:60%;
+            margin:0 auto;
 
-            #talent-info{
+            #talent-info-request-edit{
+
+                width:100%;
                 #teacher-name{
                     display:none;
                 }
+
+                #valorac-precio-request-edit{
+                    width:100%;
+
+                    #precio-request-edit{
+                        margin-left:auto;
+                        font-size:40px;
+                    }
+                }
             }
 
-            #talent-teacher{
+            #talent-teacher-request-edit{
                 width:320px;
             }
         }
+    }
+
+    #send-request-button-div{
+        display:flex;
+        flex-direction: column;
+        width:100%;
+        align-items: center;
+        margin-top:20px;
+        margin-bottom:30px;
+        
+        #send-request-button{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: $color-yellow;
+            width:30%;
+            height:35px;
+            border-radius: 30px;
+            box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+        }
+    
+        #send-request-button-disabled{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #eaeaea;
+            color:#adadad;
+            width:20%;
+            height:35px;
+            border-radius: 30px;
+            box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+        }
+    }
+
+    #request-intervals-div{
+        width:100%;
+        display:flex;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    
+        padding-top: 25px;
     }
 } 
 

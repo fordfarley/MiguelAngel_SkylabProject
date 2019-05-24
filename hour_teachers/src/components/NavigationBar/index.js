@@ -119,8 +119,29 @@ class NavigationBar extends Component {
               Login
             </button>
           )}
+
+
+          { this.props.userInfo && 
+            <form id="search-interface-up" onSubmit={this.handleSearch}>
+                <input
+                  onChange={this.onChangeSearch}
+                  id="search-input-up"
+                  type="text"
+                />
+                <button id="search-form-input-up"><FontAwesomeIcon className="icon-input-up" icon="search" /></button>
+            </form>
+
+
+
+          }
+
+
+
+
+
           {this.props.userInfo && (
             <div id="botonera">
+              <div id="nav-bar-username">{this.props.userInfo.name}</div>
               <button id="search-button" onClick={this.showSearch}>
                 <FontAwesomeIcon className="iconNav" icon="search" />
               </button>

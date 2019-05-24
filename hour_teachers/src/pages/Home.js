@@ -102,7 +102,6 @@ render() {
                 <div id="signin-secondary">Learn everything. Learn everywhere.</div>
                 <button id="signup-button" onClick={this.show}>Sign Up</button>
             </div>
-            <Link to={`/talent/1`} className="active">Talent</Link>
             <Rodal 
                   className="rodal-div"
                   customStyles={{backgroundColor:"#202D3F", color:"#F5F5F5",borderRadius:"25px"}}

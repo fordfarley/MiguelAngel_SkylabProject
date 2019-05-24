@@ -5,9 +5,9 @@ import React from 'react'
 
 export default function Medal(props) {  
   return (
-    <div className="medal-container">
-                                <FontAwesomeIcon className={"medal-"+props.size} icon="medal"/>
-                                <div className="medal-name">{props.name}</div>
+    <div className="medal-add-container">
+                                <FontAwesomeIcon className={"medal-add-"+props.size} icon="medal"/>
+                                <div className="medal-add-name">{props.name}</div>
                                 {props.added && <FontAwesomeIcon className={"medal-delete-icon"} icon="times-circle" />}
     </div>
   )

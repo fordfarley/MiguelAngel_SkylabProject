@@ -35,6 +35,9 @@
 
         #talent-info{
             
+            #talent-wide-name{
+                display:none;
+            }
 
             #teacher-name{
                 margin-bottom:25px;
@@ -46,6 +49,22 @@
                 justify-content: space-between;
             }
 
+            #talent-desc{
+                max-height:0;
+                transition: all 1s ease;
+                overflow: hidden;
+
+                &.visible{
+                    max-height:100vh;
+                }
+            }
+
+            #talent-desc-despl-title{
+                display:none;
+            }
+            #talent-desc-despl{
+                display:none;
+            }
 
             #valorac-precio{
                 display:flex;
@@ -133,27 +152,109 @@
 @media (min-width:800px){  
 
     #talent-page{
-
+        align-items: center;
 
         #talent-name{
             width:80%;
             align-self: center;
+            display:none;
     
         }
 
         #talent-text{
             flex-direction:row;
-            justify-content: center;
+            justify-content: space-between;
+            width:80%;
+            margin-top:30px;
 
             #talent-info{
+                width:70%;
+                margin-right:auto;
+
+                #valorac-precio{
+                    display:flex;
+                    flex-direction:column;
+                    align-items: flex-start;
+                    margin-top:25px;
+                   
+    
+                    #valorac{
+                        margin-right:auto;
+                    }
+                    #precio{
+                        font-size: 40px;
+                        font-weight: 700;
+                        margin-top:20px;
+                        margin-right:auto;
+                    }
+                }
+               
+                #request-fav-div{
+                    display:flex;
+                    justify-content:flex-start;
+                    margin-top:45px;
+                    margin-bottom:20px;
+    
+                    #request-button{
+                        margin-right:10px;
+                        background-color:$color-yellow;
+                        height:40px;
+                        width:200px;
+                        border-radius:20px;
+                        border-style: none;
+                        font-family: $text-font;
+                        font-size: 14px;
+                    }
+    
+                    #fav-button{
+                        background-color:$color-middle;
+                        height:40px;
+                        width:40px;
+                        border-radius: 20px;
+                        border-style: solid;
+                        color: $color-light;
+                        margin-right:auto;
+                    }
+                }
+
+
+                #talent-wide-name{
+                    display:block;
+                    text-align:left;
+                    font-family: $title-font;
+                    color:$color-dark;
+                    margin-bottom:15px;
+                    padding:0;
+                }
+
                 #teacher-name{
                     display:none;
                 }
+                div>#talent-desc-despl-title{
+                    display:block;
+                }
+
+                div>#talent-desc-title{
+                    display:none;
+                }
+                
+                #talent-desc{
+                    display:none;
+                }
+
+                #talent-desc-despl{
+                    display:block;
+                }
+
+                
             }
 
             #talent-teacher{
-                width:320px;
+                margin-left:25px;
+                
             }
         }
     }
+
+    
 } 

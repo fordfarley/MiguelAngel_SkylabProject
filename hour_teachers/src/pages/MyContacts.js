@@ -57,11 +57,11 @@ class MyContacts extends Component {
       let {loading,contacts}=this.state;
     return (<div>
       {loading && <div>loading</div>}    
-      {!loading && <div id="contacts-book">
+      {!loading && <div><div>{"Contact cards: "+contacts.length}</div><div id="contacts-book">
          {contacts.map((contact,i)=>{
             return <ContactCard key={i} index={i} metodoDelete={this.deleteContact} contact={contact} />
          })}
-      </div>}
+      </div></div>}
       {!loading && contacts.length===0 && <div>Empty</div>}
       </div>
     )

@@ -1,27 +1,27 @@
-.medal-container{
+.medal-add-container{
     display:flex;
     flex-direction: column;
     margin:10px;
 
-    .medal-s{
+    .medal-add-s{
         height: 30px;
         width:auto;
         margin-right:5px;
     }
 
-    .medal-m{
+    .medal-add-m{
         height: 50px;
         width:auto;
         margin-right:5px;
     }
 
-    .medal-l{
+    .medal-add-l{
         height: 80px;
         width:auto;
         margin-right:5px;
     }
 
-    .medal-name{
+    .medal-add-name{
         font-size: 10px;
         width:40px;
         text-align: center;

@@ -12,6 +12,7 @@ import React, { Component } from 'react'
 
 
 
+
 class MyRequests extends Component {
     constructor(props){
         super(props);
@@ -24,6 +25,7 @@ class MyRequests extends Component {
             rodalMessage:""    
         }
     }
+
   
     cargarRequests = async() =>{
         let user=await DataService.getObject('users',this.props.userInfo.uid);
@@ -136,6 +138,7 @@ class MyRequests extends Component {
             <div id="botonera-requests-container">
                 <div onClick={()=>this.setState({pending:true})} className={pending ? "button-profile-requests active":"button-profile-requests inactive"}>Pending</div>
                 <div onClick={()=>this.setState({pending:false})} className={!pending ? "button-profile-requests active":"button-profile-requests inactive"}>Accepted</div>
+                
             </div>
             
             {pending && <div className="pending-requests-container">

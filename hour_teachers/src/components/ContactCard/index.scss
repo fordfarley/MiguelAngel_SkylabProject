@@ -4,8 +4,8 @@
 #contact-card-item{
     width:250px;
     max-width: 350px;
-    background-color:$color-dark;
-    color: $color-light;
+    background-color:$color-middle;
+    color: $color-dark;
     border-radius: 25px;
     font-family: $title-font;
     display:flex;
@@ -26,19 +26,19 @@
     }
 
     .contact-user-mail{
-        color:$color-middle;
+        color:$color-dark;
         margin-bottom: 10px;
         width:100%;
     }
 
     .contact-user-phone{
-        color:$color-middle;
+        color:$color-dark;
         margin-bottom: 30px;
         width:100%;
     }
 
     .icon-contact-card{
-        color:$color-light;
+        color:$color-dark;
         margin-right:10px;
     }
 
@@ -55,11 +55,21 @@
             padding:10px;
             border-radius:80px;
             border-style:solid;
-            border-color:$color-light;
+            border-color:$color-dark;
             border-width: 1px;
         }
     }
 }
+
+@media (min-width:800px){  
+    #contact-card-item{
+       
+        margin:20px;
+        box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    }
+
+}
+
 
 // .talent-resume{
 //     width:90%;

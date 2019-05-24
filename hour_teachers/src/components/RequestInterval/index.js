@@ -70,6 +70,7 @@ export default class RequestInterval extends Component {
     return (
         <div className={errorMessage ? "request-container-error" : "request-container"}>
                 {this.props.index!==0 && <div className="request-close"><FontAwesomeIcon  onClick={this.borrarRequest} icon="times-circle" className="request-close-button"/></div>}
+                {this.props.index===0 && <div className="request-close"><FontAwesomeIcon  icon="check-circle" className="request-close-button"/></div>}
                 <div className="day-container">
                     <button onClick={this.prevDay} className="day-button">{"<"}</button>
                     <div className="day-placer">{day}</div>

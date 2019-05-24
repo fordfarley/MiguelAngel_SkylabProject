@@ -68,6 +68,10 @@ $color-dark-lighter: #282F57;
             height:auto;
 
         }
+
+        #nav-bar-username{
+            display:none;
+        }
     
         #search-button{
             background-color: $color-dark;
@@ -93,6 +97,43 @@ $color-dark-lighter: #282F57;
             margin-right:10px;
         }
     }
+}
+
+#search-interface-up{
+    display:none;
+    
+
+    #search-input-up{
+        background-color:$color-dark;
+        border-style: solid;
+        border-color:$color-light;
+        border-width: 1px;
+        height:35px;
+        border-radius: 55px;
+        color:$color-light;
+        padding:0 10px;
+        margin-right:10px;
+        width:60%;
+        font-family: $text-font;
+    }
+
+    #search-form-input-up{
+        height:35px;
+        width:35px;
+        background-color: $color-dark;
+        color:$color-light;
+        border-style: solid;
+        border-radius:20px;
+        border-width: 1px;
+
+        .icon-input-up{
+            width:19px;
+            height: 19px;
+            margin:0;
+        }
+    }
+
+
 }
 
 #opciones{
@@ -225,4 +266,61 @@ $color-dark-lighter: #282F57;
         }
 
     }
+}
+
+@media (min-width:740px){
+    #search-interface-up{
+        display: block;
+        width:40%;
+    }
+
+    #search-button{
+        display:none;
+    }
+
+    #navBar{
+        #botonera{
+            #nav-bar-username{
+                visibility: visible;
+                display:flex;
+                align-items:center;
+                margin-right:10px;
+                color: $color-light;
+            }
+        }    
+    }
+
+    #opciones{
+       
+        width:25%;
+
+        #contenedor-opciones{
+            .linkote{
+                .opcion-menu{
+                    
+                    .text-menu{
+                        margin-right:55px;
+                        text-decoration:none;
+                        
+                       
+                    }
+                    .icono-notificacion{
+                    }
+    
+                    
+                }
+            }
+    
+            .opcion-menu{
+                .text-menu{
+                    margin-right:55px;
+                    text-decoration:none;
+                }
+            }
+    
+    
+        }
+        
+    }
+    
 }

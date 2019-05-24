@@ -132,6 +132,7 @@ class PendingReviews extends Component {
         let reviews = this.state.reviews;
 
         return (
+            <div><div>{"Pending reviews: " + reviews.length}</div>
             <div id="pending-reviews-container">
                 {reviews.map((review,i)=>{
                     return <PendingReviewItem key={i+"pending"+reviews.length} index={i} review={review} metodoSend={this.sendReview}
@@ -139,7 +140,7 @@ class PendingReviews extends Component {
                 })}        
                
                
-            </div>
+            </div></div>
           )
     }
     else{return <div>No pending reviews loaded</div>}
