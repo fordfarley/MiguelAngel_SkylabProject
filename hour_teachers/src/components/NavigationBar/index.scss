@@ -1,0 +1,228 @@
+@import '~rodal/lib/rodal.css';
+@import url('https://fonts.googleapis.com/css?family=Lato|Montserrat:600');
+$title-font: 'Montserrat', sans-serif;
+$text-font: 'Lato', sans-serif;
+
+
+$color-light: #f5f5f5;
+$color-dark: #202d3f;
+$color-middle-dark: #71828C;
+$color-yellow:#ffbd44;
+$color-middle: #bcd2dd;
+$color-dark-lighter: #282F57;
+
+
+#navBar{
+    display:flex;
+    // justify-content: flex-end;
+    background-color: $color-dark;
+    height:70px;
+    width:100%;
+    align-items: center;
+    justify-content: space-between;
+
+    #logo-nav{
+        height:35px;
+        width: auto;
+        margin-left:10px;
+        margin-right:25px;
+    }
+
+    .button-nav{
+        background-color: $color-dark;
+        height:40px;
+        width: 40px;
+        border-radius: 20px;
+        border-style: solid;
+        border-width: 1px;
+        border-color: $color-light;
+    }
+
+    #search-bar{
+        background-color: $color-dark;
+        border-radius:18px;
+        width:20vw;
+        height:28px;
+        border-right-style: none;
+
+        
+
+    }
+
+    #login-button{
+            background-color: $color-yellow;
+            color: $color-dark;
+            border-style:none;
+            width:80px;
+            height:30px;
+            font-weight: bolder;
+            border-radius:15px;
+            margin-right:10px;
+    }
+
+    #botonera{
+        display:flex;
+
+        .iconNav{
+            width:19px;
+            height:auto;
+
+        }
+    
+        #search-button{
+            background-color: $color-dark;
+            color: $color-light;
+            border-style:solid;
+            border-width:1px;
+            width:35px;
+            height:35px;
+            font-weight: bolder;
+            border-radius:20px;
+            margin-right:10px;
+        }
+
+        #user-button{
+            background-color: $color-dark;
+            color: $color-light;
+            border-style:solid;
+            border-width:1px;
+            width:35px;
+            height:35px;
+            font-weight: bolder;
+            border-radius:20px;
+            margin-right:10px;
+        }
+    }
+}
+
+#opciones{
+    z-index: 100;
+    position: absolute;
+    width:50%;
+    top: 70px;
+    right:0px;
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-start;
+    max-height:0px;
+    overflow: hidden;
+    transition: all 1s ease;
+    box-shadow: -7px 0px 8px 0px rgba(0,0,0,0.35);
+    
+    &.visible{
+        max-height: 100vh;
+    }
+    
+    
+
+    #contenedor-opciones{
+        background-color: $color-dark;
+        width:100%;
+        list-style:none;
+        text-align:right;
+        margin:0;
+        padding:0;
+        
+        .linkote{
+            text-decoration: none;
+
+            .opcion-menu{
+                color:$color-light;
+                padding:15px 0;
+                width:100%;
+                border-top-style:solid;
+                border-width: 0.5px;
+                text-decoration:none;
+                
+                .text-menu{
+                    margin-right:15px;
+                    text-decoration:none;
+                    
+                   
+                }
+                .icono-notificacion{
+                    width:10px;
+                    height:auto;
+                    color: $color-yellow;
+                    margin-right:5px;
+                }
+
+                
+            }
+        }
+
+        .opcion-menu{
+            color:$color-light;
+            padding:15px 0;
+            width:100%;
+            border-top-style:solid;
+            border-width: 0.5px;
+            text-decoration:none;
+            
+            .text-menu{
+                margin-right:15px;
+                text-decoration:none;
+            }
+        }
+
+
+    }
+}
+
+
+#search{
+    z-index: 50;
+    position: absolute;
+    width:100%;
+    top: 70px;
+    right:0px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $color-middle;
+    max-height:0px;
+    font-size: 16px;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    transition: 1s all ease;
+    overflow:hidden;
+
+    &.visible{
+        max-height: 100vh;
+    }
+
+    #search-interface{
+        
+        width:70%;
+        margin:5px 0;
+        display: flex;
+
+        #search-input{
+            background-color: $color-light;
+            height:25px;
+            padding:3px 10px;
+            border-radius: 15px;
+            width:60%;
+            border-style: none;
+            color:$color-dark;
+            font-family: $text-font;
+            margin-right:5px;
+        }
+
+        #search-form-input{
+            background-color: $color-middle;
+            height:32px;
+            padding:3px 10px;
+            border-radius: 15px;
+            width:70px;
+            border-style: solid;
+            border-width:2px;
+            border-color:$color-light;
+            color:$color-light;
+            font-weight: 900;
+            font-family: $text-font;
+            
+        }
+
+    }
+}

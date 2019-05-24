@@ -1,0 +1,247 @@
+@import './BaseDefinitions';
+
+body{
+    background-color:$color-light;
+}
+
+#profile-page{
+    background-color:$color-light;
+    padding: 30px 0;
+    display:flex;
+    flex-direction: column;
+    width:100%;
+
+    #user-photo{
+        width:150px;
+        height:150px;
+        border-radius:100px;
+        padding:5px;
+        border-style:solid;
+        border-color: $color-middle;
+    }
+
+    #user-name{
+        margin:0;
+    }
+
+    #link-talents{
+        text-decoration:none;
+        color: $color-middle-dark;
+    }
+
+    #buttons-profile{
+        display:flex;
+        justify-content: center;
+        color:$color-middle;
+
+        .button-profile{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            border-style:solid;
+            border-width: 0.5px;
+            border-color:$color-middle;
+            width:55px;
+            height: 55px;
+            border-radius: 40px;
+            margin:5px;
+            padding: 5px;
+            
+
+            .icon-button{
+                height:25px;
+                width:auto;
+            }
+
+            .label-icon-profile{
+                font-size:12px;
+            }
+        }
+
+        .active{
+            color: $color-dark;
+            border-color:$color-dark;
+
+        }
+
+
+    }
+
+    #talents-div{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+        .talents-title{
+            margin-top:10px;
+            margin-bottom:5px;
+            width:80%;
+            border-bottom-style: solid;
+            border-bottom-width: 0.5px;
+            border-color: $color-dark;
+        }
+
+        .talent-link{
+            display:flex;
+            flex-direction: column;
+            align-items: center;
+            
+        }
+    }
+
+}
+
+
+#talent-page{
+    
+
+    #talent-image{
+        width:100%;
+    }
+
+    #talent-name{
+        // width:90%;
+        // align-self: center;
+
+        #talent-name-h1{
+            text-align:left;
+            font-family: $title-font;
+            color:$color-dark;
+            margin-bottom:15px;
+            padding:0 20px;
+        }
+    }
+    
+
+    #talent-text{
+        text-align: left;
+        padding:0 20px;
+        display:flex;
+        flex-direction: column;
+        font-family: $text-font;
+        color:$color-middle-dark;
+
+        #talent-info{
+            
+
+            #teacher-name{
+                margin-bottom:25px;
+                
+            }
+
+            #talent-desc-title{
+                display: flex;
+                justify-content: space-between;
+            }
+
+
+            #valorac-precio{
+                display:flex;
+                flex-direction: column;
+                align-items: center;
+                margin-top:25px;
+
+                justify-content: space-evenly;
+
+                #precio{
+                    font-size: 25px;
+                    font-weight: 700;
+                    margin-top:10px;
+                }
+            }
+
+            #request-fav-div{
+                display:flex;
+                justify-content:center;
+                margin-top:25px;
+                margin-bottom:20px;
+
+                #request-button{
+                    margin-right:10px;
+                    background-color:$color-yellow;
+                    height:40px;
+                    width:200px;
+                    border-radius:20px;
+                    border-style: none;
+                    font-family: $text-font;
+                    font-size: 14px;
+                }
+
+                #fav-button{
+                    background-color:$color-middle;
+                    height:40px;
+                    width:40px;
+                    border-radius: 20px;
+                    border-style: solid;
+                    color: $color-dark;
+                }
+            }
+        }
+    }
+
+    #talent-reviews{
+        display:flex;
+        flex-direction: column;
+        margin:30px auto;
+        width:80%;
+        text-align:left;
+        font-size:14px;
+        color:$color-middle-dark;
+
+        #talent-reviews-title{
+            font-size:16px;
+            border-bottom-style: solid;
+            border-bottom-width: 0.5px;
+            border-bottom-color: $color-middle-dark;
+        }
+        
+        .talent-review{
+            margin:5px;
+            .star{
+                width:15px;
+                height: auto;
+            }
+        }
+    }
+
+}
+
+.review-stars{
+
+    display:flex;
+    align-items: center;
+
+    .star{
+        width:25px;
+        height: auto;
+    }
+}
+
+
+@media (min-width:800px){  
+
+    #talent-page{
+
+
+        #talent-name{
+            width:80%;
+            align-self: center;
+    
+        }
+
+        #talent-text{
+            flex-direction:row;
+            justify-content: center;
+
+            #talent-info{
+                #teacher-name{
+                    display:none;
+                }
+            }
+
+            #talent-teacher{
+                width:320px;
+            }
+        }
+    }
+} 

@@ -1,0 +1,54 @@
+.medal-container{
+    display:flex;
+    margin:10px;
+
+    .medal-s{
+        height: 30px;
+        width:auto;
+        margin-right:5px;
+    }
+
+    .medal-m{
+        height: 50px;
+        width:auto;
+        margin-right:5px;
+    }
+
+    .medal-l{
+        height: 80px;
+        width:auto;
+        margin-right:5px;
+    }
+
+    .medal-info-s{
+        .medal-name{
+            font-size: 10px;
+        }
+
+        .medal-number{
+            font-size: 16px;
+        }
+    }
+
+    
+    .medal-info-m{
+        .medal-name{
+            font-size: 14px;
+        }
+
+        .medal-number{
+            font-size: 16px;
+        }
+    }
+
+    
+    .medal-info-l{
+        .medal-name{
+            font-size: 16px;
+        }
+
+        .medal-number{
+            font-size: 16px;
+        }
+    }
+}

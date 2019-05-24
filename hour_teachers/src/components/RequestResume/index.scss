@@ -1,0 +1,77 @@
+@import '../../pages/styles/BaseDefinitions';
+
+.request-resume-item{
+    background-color:$color-dark;
+    width:80%;
+    border-radius: 25px;
+    font-family: $text-font;
+    padding-top:20px;
+    margin-top:20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.65);
+
+    .req-talent-name{
+        width:90%;
+        color:$color-light;
+        font-family: $title-font;
+        font-size:16px;
+        border-bottom-style: solid;
+        border-bottom-color: $color-light;
+        border-width: 0.5px;
+        padding-bottom:10px;
+        
+    }
+
+    .interval-tags-container{
+        display:flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin:15px 0;
+
+        .req-interval-tag{
+            background-color:$color-middle;
+            margin-right:5px;
+            font-size:10px;
+            padding:5px;
+            border-radius:20px;
+            margin-bottom:5px;
+        }
+    }
+
+    .req-contact-info{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+        .req-contact-info-field{
+            color:$color-light;
+            font-size:12px;
+        }
+    }
+
+    .botonera-req-resume{
+        display:flex;
+        justify-content: center;
+        width:100%;
+        margin-top:15px;
+
+        .req-resume-left-button{
+            color:$color-middle-dark;
+            width:50%;
+            padding:15px 0;
+            border-bottom-left-radius: 25px;
+            border-right-style: solid;
+            
+        }
+
+        .req-resume-right-button{
+            color:#99504D;
+            width:50%;
+            padding:15px 0;
+            border-bottom-right-radius: 25px;
+        }
+    }
+
+}

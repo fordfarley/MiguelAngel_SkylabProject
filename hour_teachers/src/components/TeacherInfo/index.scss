@@ -1,0 +1,91 @@
+#teacher-info{
+
+    background-color:#eeeeee;
+    border-radius:25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding:15px 0;
+    box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
+    margin:20px 0;
+    // border-style:solid;
+    // border-width:0.5px;
+
+    #teacher-header{
+
+        display:flex;
+        align-items: center;
+
+        #teacher-photo{
+            width:80px;
+            height:80px;
+            border-radius:50px;
+            margin-right:10px;
+        }
+
+        #teacher-name{
+            font-size:16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        #reviews-comments{
+            margin:15px 0;
+
+            
+            
+        }
+
+        #teacher-hosts{
+            margin-top:15px;
+
+            #teacher-hosts-response{
+                font-weight: bold;
+            }
+        }
+    }
+
+    // .separador{
+    //     height:1px;
+    //     width:90%;
+    //     border-bottom-style: solid;
+    //     border-width: 0.5px;
+    //     margin: 10px 0;
+    //     border-bottom-color: #71828c;
+    // }
+
+    #medals-div{
+        display:flex;
+        width:100%;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+    }
+
+    #reviews-comments{
+        width:85%;
+
+        .alumno-review{
+            margin:10px 0;
+        }
+
+        .comment{
+    
+            .num-val{
+                font-weight:bolder;
+                font-size: 16px;
+                margin-right:10px;
+                
+            }
+        }
+
+        .star{
+            width:15px;
+            height:auto;
+        }
+    }
+    
+    
+}
+
+ 
