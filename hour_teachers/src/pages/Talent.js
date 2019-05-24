@@ -115,10 +115,13 @@ class Talent extends Component {
 
   renderReviewPrice = () =>{
     let {talent}=this.state;
+    let valor=(talent.totalReview / talent.reviews.length).toFixed(1);
+    if(isNaN(valor)){valor=0;}
     return (
       <div id="valorac-precio">
           <div id="valorac">
-              <ReviewStars valor={(talent.totalReview / talent.reviews.length).toFixed(1)}/>
+
+              <ReviewStars valor={valor}/>
           </div>
           <div id="precio">{talent.price + " €/h"}</div>
       </div>
@@ -145,26 +148,41 @@ class Talent extends Component {
   renderDescription = () =>{
     let { descriptionVisible, talent} = this.state;
 
-    if(descriptionVisible){
+    // if(descriptionVisible){
       return (<div>
+                  
+                  <div id="talent-desc-despl-title" >
+                    <span>Description</span>
+                  </div>
+                  
+                  
+
+                  
                   <div id="talent-desc-title" onClick={this.changeVisible}>
                     <span>Description</span>
                     <FontAwesomeIcon icon="angle-up" />
                   </div>
                   <hr />
-                  <div id="talent-desc">{talent.description}</div>
+                  <div id="talent-desc" className={descriptionVisible ? "visible" : null}>{talent.description}</div>
+                  <div id="talent-desc-despl">{talent.description}</div>
               </div>
       )
-    }else{
-      return (<div>
-                  <div id="talent-desc-title" onClick={this.changeVisible}>
-                    <span>Description</span>
-                    <FontAwesomeIcon icon="angle-down" />
-                  </div>
-                  <hr />
-              </div>
-      )
-    }
+    // }else{
+    //   return (<div>
+    //               <div id="talent-desc-despl-title" >
+    //                 <span>Description</span>
+    //               </div>
+    //               <hr />
+    //               <div id="talent-desc-despl">{talent.description}</div>
+
+    //               <div id="talent-desc-title" onClick={this.changeVisible}>
+    //                 <span>Description</span>
+    //                 <FontAwesomeIcon icon="angle-down" />
+    //               </div>
+    //               <hr />
+    //           </div>
+    //   )
+    // }
 
   }
 
@@ -196,6 +214,7 @@ class Talent extends Component {
             
                 <div id="talent-text">
                     <div id="talent-info">
+                        <div id="talent-wide-name"><h1 id="talent-wide-name-h1">{talent.name}</h1></div>
                         <div id="teacher-name">
                             <Link smooth to="#talent-teacher">
                             {talent.teacherName}

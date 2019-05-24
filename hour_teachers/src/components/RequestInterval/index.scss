@@ -11,6 +11,8 @@
     box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
     padding-bottom: 15px;
     margin-bottom: 15px;
+    max-width: 350px;
+    min-width:270px;
 
     
 }
@@ -26,6 +28,8 @@
     box-shadow: 0px 5px 8px -1px rgba(0,0,0,0.35);
     padding-bottom: 15px;
     margin-bottom: 15px;
+    max-width: 350px;
+    min-width:270px;
 
     
 }
@@ -84,4 +88,24 @@
         height:15px;
     
     }
+}
+
+
+@media (min-width:800px){
+    .request-container{
+
+        margin: 15px 15px;
+    
+        
+    }
+    
+    .request-container-error{
+    
+        margin: 15px 15px;
+    
+        
+    }
+
+
+
 }

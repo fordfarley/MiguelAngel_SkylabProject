@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import TalentResume from '../components/TalentResume';
 import DataService from '../services/DataService';
 import WithUser from '../helpers/WithUser';
-import './styles/MyTalents.scss';
+// import './styles/MyTalents.scss';
+import './styles/FavoriteTalents.scss';
 
 
 class FavoriteTalents extends Component {
@@ -68,9 +69,9 @@ class FavoriteTalents extends Component {
       <div id='favtalents-div'>
         {!loading && favorites.length===0 && <div id="error-div">No favorite talents added!</div>}
         {loading && <div>Loading</div>}
-        {!loading && <div id="talents-div-2">{favorites.map((talent,i)=>{
+        {!loading && <div><div>{"Favorite talents: "+ favorites.length}</div><div id="favtalents-div-2">{favorites.map((talent,i)=>{
                 return <div key={i} className="talent-link" onClick={()=>this.redirect(i)}><TalentResume talent={talent}/></div>;
-        })}</div>
+        })}</div></div>
 
         }
        

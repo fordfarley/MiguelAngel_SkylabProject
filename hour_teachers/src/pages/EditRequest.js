@@ -189,11 +189,11 @@ class EditRequest extends Component {
     let valoracion=talent.totalReview / talent.reviews.length;
     if(isNaN(valoracion)){valoracion=0}
     return (
-      <div id="valorac-precio">
-          <div id="valorac">
+      <div id="valorac-precio-request-edit">
+          <div id="valorac-request-edit">
               <ReviewStars valor={(valoracion).toFixed(1)}/>
           </div>
-          <div id="precio">{talent.price + " €/h"}</div>
+          <div id="precio-request-edit">{talent.price + " €/h"}</div>
       </div>
     )
   }
@@ -201,13 +201,13 @@ class EditRequest extends Component {
   renderTalentInfo = () =>{
     let {talent} = this.state;
     return(
-      <div id="talent-page">
+      <div id="talent-page-request-edit">
                 {/* <div><img id="talent-image" src={talent.img} alt={talent.name + " img"} /></div> */}
-                <div id="talent-name"><h1 id="talent-name-h1">{talent.name}</h1></div>
+                <div id="talent-name-request-edit"><h1 id="talent-name-h1-request-edit">{talent.name}</h1></div>
             
-                <div id="talent-text">
-                    <div id="talent-info">
-                        <div id="teacher-name">
+                <div id="talent-text-request-edit">
+                    <div id="talent-info-request-edit">
+                        <div id="teacher-name-request-edit">
                             {talent.teacherName}
                         </div>
                         {this.renderReviewPrice()}

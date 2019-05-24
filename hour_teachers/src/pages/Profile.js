@@ -148,11 +148,13 @@ export default class Profile extends Component {
 
                             <div id="talents-div">
                               <div className="talents-title">Talents:</div>
+                              <div className="user-talents-list-container">
                               {talents.map((talent,i) =>{
                                 //  console.log(talent);
                                  return <div key={i} className="talent-link" onClick={()=>this.redirect(i)}><TalentResume talent={talent}/></div>;
                                 })
                               }
+                              </div>
                             
                             </div>
                          </div>}
